@@ -1,4 +1,10 @@
-# Northbate LM — Loan/Load Management UI Prototype
+# Northbate LM — Server-Driven UI Prototype
+
+A demo repo exploring Server-Driven UI (SDUI): screens whose layout and
+content are described as JSON from a backend and rendered by a fixed set
+of client-side primitives, so most UI changes ship without an app release.
+Built as a trucking/logistics Load Management UI, with the original SDUI
+proof-of-concept and a live stock dashboard alongside it.
 
 The client (`client/`) is a UI-only prototype of a trucking/logistics Load
 Management System: load lifecycle management, planning and dispatch
@@ -246,5 +252,3 @@ forever, without another release.
 unit test — it renders the real `App` and expects the real backend to be
 reachable at `:4000`. Start `server` (`npm run dev`) before running
 `npx vitest run` in `client`, or it fails on the fetch, not on the UI.
-#   s e r v e r - d r i v e n U I  
- 
