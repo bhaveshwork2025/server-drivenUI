@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SDUI Admin</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #0b1220;
+    color: #e5e7eb;
+    display: flex;
+    min-height: 100vh;
+  }
+  #panel {
+    width: 420px;
+    flex: 0 0 420px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #111827;
+    border-right: 1px solid #1f2937;
+    overflow-y: auto;
+  }
+  #preview-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  h1 { font-size: 16px; margin: 0 0 4px; }
+  .sub { font-size: 12px; color: #9ca3af; margin-bottom: 16px; }
+  label { display: block; font-size: 12px; color: #9ca3af; margin: 14px 0 4px; }
+  input[type=text], select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #374151;
+    background: #0b1220;
+    color: #e5e7eb;
+    font-size: 13px;
+  }
+  input[type=color] { width: 48px; height: 32px; padding: 0; border: none; vertical-align: middle; }
+  .row { display: flex; gap: 8px; align-items: center; }
+  .row input[type=text] { flex: 1; }
+  fieldset { border: 1px solid #1f2937; border-radius: 8px; margin: 16px 0; padding: 10px 12px; }
+  legend { font-size: 12px; color: #93c5fd; padding: 0 4px; }
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  #publish { background: #22c55e; color: #052e16; width: 100%; margin-top: 18px; }
+  #publish:disabled { background: #374151; color: #6b7280; cursor: not-allowed; }
+  #reload-preview { background: #374151; color: #e5e7eb; }
+  #raw-toggle { background: transparent; color: #93c5fd; text-decoration: underline; padding: 4px 0; }
+  #status { font-size: 12px; margin-top: 10px; min-height: 16px; }
+  #status.ok { color: #4ade80; }
+  #status.err { color: #f87171; }
+  #meta { font-size: 11px; color: #6b7280; margin-top: 4px; }
+  iframe {
+    width: 390px;
+    height: 760px;
+    border: 8px solid #1f2937;
+    border-radius: 24px;
+    background: #fff;
+  }
+  textarea#raw-json { height: 220px; font-family: ui-monospace, monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+  <div id="panel">
+    <h1>SDUI Admin</h1>
+    <div class="sub">Edit the screen, click Publish, the running app updates on its next fetch -- no rebuild.</div>
+
+    <label for="screen-select">Screen</label>
+    <select id="screen-select"></select>
+
+    <fieldset>
+      <legend>Screen background</legend>
+      <div class="row">
+        <input type="color" id="bg-color" value="#111827" />
+        <input type="text" id="bg-color-text" value="#111827" />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Banner</legend>
+      <label for="banner-text">Text</label>
+      <input type="text" id="banner-text" />
+      <label for="banner-color">Background color</label>
+      <div class="row">
+        <input type="color" id="banner-color" />
+        <input type="text" id="banner-color-text" />
+      </div>
+      <label for="banner-anim">Enter animation</label>
+      <select id="banner-anim">
+        <option value="fade">fade</option>
+        <option value="slideUp">slideUp</option>
+        <option value="pulse">pulse</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Info text</legend>
+      <label for="info-text">Text</label>
+      <input type="text" id="info-text" />
+    </fieldset>
+
+    <fieldset>
+      <legend>Card</legend>
+      <label for="card-title">Title</label>
+      <input type="text" id="card-title" />
+      <label for="card-subtitle">Subtitle</label>
+      <input type="text" id="card-subtitle" />
+    </fieldset>
+
+    <fieldset>
+      <legend>Button</legend>
+      <label for="button-text">Text</label>
+      <input type="text" id="button-text" />
+      <label for="button-url">Opens URL</label>
+      <input type="text" id="button-url" />
+      <label for="button-color">Background color</label>
+      <div class="row">
+        <input type="color" id="button-color" />
+        <input type="text" id="button-color-text" />
+      </div>
+    </fieldset>
+
+    <button id="raw-toggle" type="button">Show raw JSON instead</button>
+    <textarea id="raw-json" style="display:none"></textarea>
+
+    <button id="publish" type="button">Publish to backend</button>
+    <div id="status"></div>
+    <div id="meta"></div>
+  </div>
+
+  <div id="preview-col">
+    <div class="sub" style="margin-bottom:8px;">
+      Live preview (the real client app, fetching from this same backend)
+      <button id="reload-preview" type="button">Reload preview</button>
+    </div>
+    <iframe id="preview" src="http://localhost:5173/"></iframe>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

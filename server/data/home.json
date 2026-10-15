@@ -1,0 +1,100 @@
+{
+  "screenId": "home",
+  "version": 6,
+  "updatedAt": "2026-10-15T12:35:00.000Z",
+  "root": {
+    "type": "screen",
+    "id": "root",
+    "style": {
+      "backgroundColor": "#F4F6F9"
+    },
+    "children": [
+      {
+        "type": "banner",
+        "id": "banner",
+        "props": {
+          "text": "Bhavesh Gallery"
+        },
+        "style": {
+          "backgroundColor": "#0f766e",
+          "color": "#ffffff",
+          "borderRadius": 12,
+          "padding": 16
+        },
+        "enterAnimation": "fade"
+      },
+      {
+        "type": "text",
+        "id": "infoText",
+        "props": {
+          "text": "Images below are fetched live from the Picsum Photos API (picsum.photos) — edit server/data/home.json to change the set, no app rebuild needed."
+        },
+        "style": {
+          "color": "#475569",
+          "padding": 8,
+          "fontSize": 13
+        }
+      },
+      {
+        "type": "spacer",
+        "id": "spacer1",
+        "props": {
+          "height": 4
+        }
+      },
+      {
+        "type": "container",
+        "id": "row1",
+        "style": {
+          "direction": "row",
+          "gap": 8
+        },
+        "children": [
+          { "type": "image", "id": "img1", "props": { "src": "https://picsum.photos/seed/mountains/400/400", "alt": "Mountains" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } },
+          { "type": "image", "id": "img2", "props": { "src": "https://picsum.photos/seed/ocean/400/400", "alt": "Ocean" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } },
+          { "type": "image", "id": "img3", "props": { "src": "https://picsum.photos/seed/forest/400/400", "alt": "Forest" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } }
+        ]
+      },
+      {
+        "type": "spacer",
+        "id": "spacer2",
+        "props": {
+          "height": 8
+        }
+      },
+      {
+        "type": "container",
+        "id": "row2",
+        "style": {
+          "direction": "row",
+          "gap": 8
+        },
+        "children": [
+          { "type": "image", "id": "img4", "props": { "src": "https://picsum.photos/seed/desert/400/400", "alt": "Desert" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } },
+          { "type": "image", "id": "img5", "props": { "src": "https://picsum.photos/seed/city/400/400", "alt": "City" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } },
+          { "type": "image", "id": "img6", "props": { "src": "https://picsum.photos/seed/lake/400/400", "alt": "Lake" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } }
+        ]
+      },
+      {
+        "type": "spacer",
+        "id": "spacer3",
+        "props": {
+          "height": 8
+        }
+      },
+      {
+        "type": "container",
+        "id": "row3",
+        "style": {
+          "direction": "row",
+          "gap": 8
+        },
+        "children": [
+          { "type": "image", "id": "img7", "props": { "src": "https://picsum.photos/seed/bridge/400/400", "alt": "Bridge" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } },
+          { "type": "image", "id": "img8", "props": { "src": "https://picsum.photos/seed/valley/400/400", "alt": "Valley" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } },
+          { "type": "image", "id": "img9", "props": { "src": "https://picsum.photos/seed/coast/400/400", "alt": "Coast" }, "style": { "width": "32%", "borderRadius": 12, "elevation": 3 } }
+        ]
+      }
+    ]
+  }
+}

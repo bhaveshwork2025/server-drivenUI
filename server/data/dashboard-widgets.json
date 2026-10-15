@@ -1,0 +1,21 @@
+{
+  "screenId": "dashboard-widgets",
+  "version": 1,
+  "banner": {
+    "enabled": false,
+    "text": "Markets closed for the holiday — showing last session's data.",
+    "backgroundColor": "#b45309",
+    "color": "#ffffff"
+  },
+  "watchlist": [
+    { "symbol": "AAPL", "label": "Apple" },
+    { "symbol": "MSFT", "label": "Microsoft" },
+    { "symbol": "GOOGL", "label": "Alphabet" },
+    { "symbol": "AMZN", "label": "Amazon" },
+    { "symbol": "TSLA", "label": "Tesla" },
+    { "symbol": "NVDA", "label": "Nvidia" },
+    { "symbol": "META", "label": "Meta" },
+    { "symbol": "NFLX", "label": "Netflix" }
+  ],
+  "defaultSymbol": "AAPL"
+}

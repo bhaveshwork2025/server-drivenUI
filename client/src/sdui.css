@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.app-shell {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f4f6f9;
+}
+
+.app-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #222;
+  color: #fff;
+  font-size: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-toolbar button {
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.app-error {
+  margin: 12px;
+  padding: 12px;
+  background: #ffebee;
+  color: #c62828;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.sdui-screen {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+
+.sdui-container {
+  display: flex;
+}
+
+.sdui-text {
+  margin: 0;
+}
+
+.sdui-image {
+  max-width: 100%;
+  display: block;
+}
+
+.sdui-banner,
+.sdui-card,
+.sdui-button {
+  cursor: pointer;
+}
+
+.sdui-card-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.sdui-card-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.sdui-button {
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+}
+
+/* Pre-built animation vocabulary. The server can only ever pick one
+   of these BY NAME ("fade", "slideUp", "pulse") -- it can't send new
+   animation logic over the wire, only choose among what already
+   shipped in the client build. */
+@keyframes sdui-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes sdui-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sdui-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.sdui-anim-fade {
+  animation: sdui-fade 0.4s ease-out;
+}
+.sdui-anim-slideUp {
+  animation: sdui-slide-up 0.4s ease-out;
+}
+.sdui-anim-pulse {
+  animation: sdui-pulse 1.6s ease-in-out infinite;
+}
