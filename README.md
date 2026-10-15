@@ -246,3 +246,5 @@ forever, without another release.
 unit test — it renders the real `App` and expects the real backend to be
 reachable at `:4000`. Start `server` (`npm run dev`) before running
 `npx vitest run` in `client`, or it fails on the fetch, not on the UI.
+#   s e r v e r - d r i v e n U I  
+ 
