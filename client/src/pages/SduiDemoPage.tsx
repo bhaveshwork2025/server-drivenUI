@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SduiRenderer } from "../sdui/SduiRenderer";
 import { useScreen } from "../sdui/useScreen";
+// @ts-expect-error CSS imports are processed by the bundler, not TypeScript.
 import "../sdui.css";
 
 // The original demo: a screen whose look comes entirely from
